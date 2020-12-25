@@ -1,0 +1,21 @@
+{
+  "name": "xmas_card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkxkd0159/xmas-card.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/tkxkd0159/xmas-card",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}

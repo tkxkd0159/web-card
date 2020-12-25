@@ -28,7 +28,7 @@ canvas {
 #envelop {
   width: 400px;
   height: 400px;
-  background-image: url(img/envelope_PNG18366.png);
+  background-image: url(../img/envelope_PNG18366.png);
   background-size: cover;
   background-position: center;
   margin: 200px auto 0 auto;
@@ -98,7 +98,7 @@ canvas {
   border-radius: 20px;
   box-shadow: 0 0 20px 10px black;
   margin: 20px auto 0 auto;
-  background-image: url(img/giphy.gif);  /*https://media.giphy.com/media/gNke2UrUTopOg/giphy.gif */
+  background-image: url(../img/giphy.gif);  /*https://media.giphy.com/media/gNke2UrUTopOg/giphy.gif */
   background-size: cover;
   background-position: center;
   transition: 0.5s;
