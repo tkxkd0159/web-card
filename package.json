@@ -5,6 +5,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "build": "parcel build index.html",
+    "build:local": "parcel build --no-cache --public-url /dist index.html",
     "start": "parcel serve --no-cache index.html"
   },
   "repository": {
