@@ -57,10 +57,11 @@ function open_state() {
 }
 
 (() => {
-  while (isMobile()) {
+  if (isMobile()) {
     alert(
       "This is a desktop-only experience. Please open this link on a desktop browser."
     );
+    document.body.innerHTML = "";
   }
 
   close_state();
