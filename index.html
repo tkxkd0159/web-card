@@ -34,6 +34,13 @@
     <script type="module" src="src/card.js"></script>
     <script type="module" src="src/particles.min.js"></script>
     <script type="module" src="src/app.js"></script>
+    <script>
+      if (isMobile()) {
+        alert(
+          "This is a desktop-only experience. Please open this link on a desktop browser."
+        );
+      }
+    </script>
   </head>
   <body>
     <div id="particles-js">
