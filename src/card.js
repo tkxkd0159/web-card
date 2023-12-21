@@ -1,7 +1,7 @@
 const letterClose = document.querySelector(".letter-close");
 const letterOpen = document.querySelector(".letter-open");
 
-function isMobile() {
+export function isMobile() {
   if (navigator.userAgent.match(/Android/i)
     || navigator.userAgent.match(/webOS/i)
     || navigator.userAgent.match(/iPhone/i)
@@ -56,5 +56,14 @@ function open_state() {
   });
 }
 
-close_state();
-open_state();
+(() => {
+  while (isMobile()) {
+    alert(
+      "This is a desktop-only experience. Please open this link on a desktop browser."
+    );
+  }
+
+  close_state();
+  open_state();
+})();
+
