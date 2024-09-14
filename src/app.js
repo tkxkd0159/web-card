@@ -1,112 +1,21 @@
-particlesJS('particles-js',
-  {
-    "particles": {
-      "number": {
-        "value": 120,
-        "density": {
-          "enable": true,
-          "value_area": 800
-        }
-      },
-      "color": {
-        "value": "#fff"
-      },
-      "shape": {
-        "type": "circle",
-        "stroke": {
-          "width": 0,
-          "color": "#000000"
-        },
-        "polygon": {
-          "nb_sides": 5
-        },
-        "image": {
-          "src": "img/github.svg",
-          "width": 100,
-          "height": 100
-        }
-      },
-      "opacity": {
-        "value": 0.5,
-        "random": true,
-        "anim": {
-          "enable": false,
-          "speed": 1,
-          "opacity_min": 0.1,
-          "sync": false
-        }
-      },
-      "size": {
-        "value": 10,
-        "random": true,
-        "anim": {
-          "enable": false,
-          "speed": 40,
-          "size_min": 0.1,
-          "sync": false
-        }
-      },
-      "line_linked": {
-        "enable": false,
-        "distance": 288.6141709557941,
-        "color": "#ffffff",
-        "opacity": 0.4,
-        "width": 2
-      },
-      "move": {
-        "enable": true,
-        "speed": 4,
-        "direction": "bottom",
-        "random": false,
-        "straight": false,
-        "out_mode": "out",
-        "bounce": false,
-        "attract": {
-          "enable": false,
-          "rotateX": 600,
-          "rotateY": 1200
-        }
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "bubble"
-        },
-        "onclick": {
-          "enable": false,
-          "mode": "repulse"
-        },
-        "resize": true
-      },
-      "modes": {
-        "grab": {
-          "distance": 400,
-          "line_linked": {
-            "opacity": 0.5
-          }
-        },
-        "bubble": {
-          "distance": 400,
-          "size": 4,
-          "duration": 0.3,
-          "opacity": 1,
-          "speed": 3
-        },
-        "repulse": {
-          "distance": 200,
-          "duration": 0.4
-        },
-        "push": {
-          "particles_nb": 4
-        },
-        "remove": {
-          "particles_nb": 2
-        }
-      }
-    },
-    "retina_detect": true
-  }
-);
+function createFlower() {
+  const flower = document.createElement('div');
+  flower.classList.add('flower');
+
+  // Random horizontal position
+  flower.style.left = Math.random() * 100 + 'vw';
+
+  // Random animation duration
+  flower.style.animationDuration = Math.random() * 3 + 5 + 's';
+
+  // Add flower to the shower container
+  document.getElementById('flower-shower').appendChild(flower);
+
+  // Remove flower after animation is done
+  setTimeout(() => {
+    flower.remove();
+  }, 5000); // Keep in sync with the animation duration
+}
+
+// Generate flowers every 300ms
+setInterval(createFlower, 300);
