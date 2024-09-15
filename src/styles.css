@@ -11,12 +11,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
   overflow: hidden;
 }
 
 .letter-container {
   width: 60%;
+  max-width: 800px; /* Ensure it doesn’t get too large on bigger screens */
   background-color: #fff;
   padding: 30px;
   border: 2px solid #ececec;
@@ -26,9 +28,10 @@ body {
   z-index: 1;
 }
 
+/* Header Styling */
 .letter-header h1 {
   font-family: 'Brush Script MT', cursive;
-  font-size: 3em;
+  font-size: 2.5em;
   text-align: center;
   color: #ff6f61;
   margin-bottom: 20px;
@@ -40,6 +43,7 @@ body {
   margin-bottom: 20px;
 }
 
+/* Footer Styling */
 .letter-footer {
   margin-top: 30px;
   text-align: right;
@@ -78,5 +82,35 @@ body {
   100% {
       transform: translateY(100vh) rotate(360deg);
       opacity: 0;
+  }
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .letter-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .letter-header h1 {
+    font-size: 2em;
+  }
+
+  .letter-body p, .letter-footer p {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .letter-header h1 {
+    font-size: 1.5em;
+  }
+
+  .letter-body p, .letter-footer p {
+    font-size: 0.9em;
   }
 }
