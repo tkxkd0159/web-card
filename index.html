@@ -7,8 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       .envelope {
-        width: clamp(260px, 70vw, 340px);
-        height: clamp(180px, 45vw, 240px);
+        width: clamp(280px, 75vw, 360px);
+        height: clamp(240px, 55vw, 300px);
         position: relative;
         perspective: 1000px;
         cursor: pointer;
@@ -23,7 +23,7 @@
         height: 0;
         border-left: 50% solid transparent;
         border-right: 50% solid transparent;
-        border-bottom: 100px solid #ef4444;
+        border-bottom: 120px solid #ef4444;
         transform-origin: top;
         transition: transform 0.6s ease-in-out;
         z-index: 3;
@@ -41,19 +41,18 @@
 
       .ticket {
         position: absolute;
-        top: 8%;
-        left: 8%;
-        width: 84%;
-        height: 84%;
+        top: 4%;
+        left: 6%;
+        width: 88%;
+        height: 92%;
         background: #fffefc;
-        padding: 18px;
+        padding: 14px;
         border-radius: 12px;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         transform: scale(0.9);
         opacity: 0;
         transition: opacity 0.6s ease, transform 0.5s ease;
         z-index: 1;
-        overflow-y: auto;
       }
 
       .opened .flap {
@@ -68,7 +67,7 @@
       }
 
       .envelope:hover {
-        transform: translateY(-4px);
+        transform: translateY(-3px);
       }
     </style>
   </head>
