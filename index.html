@@ -3,57 +3,141 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Letter for Helen</title>
-    <link rel="stylesheet" href="src/styles.css" />
+    <title>🎉 Happy Birthday [Friend's Name]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .envelope {
+        width: clamp(260px, 70vw, 340px);
+        height: clamp(180px, 45vw, 240px);
+        position: relative;
+        perspective: 1000px;
+        cursor: pointer;
+        transition: transform 0.5s ease-in-out;
+      }
 
-    <meta property="og:image" content="img/envelope.png" />
-    <meta property="og:title" content="Con todo mi corazón a Helen" />
+      .flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 50% solid transparent;
+        border-right: 50% solid transparent;
+        border-bottom: 100px solid #ef4444;
+        transform-origin: top;
+        transition: transform 0.6s ease-in-out;
+        z-index: 3;
+      }
+
+      .body {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 65%;
+        background: linear-gradient(145deg, #fb923c, #f59e0b);
+        border-radius: 0 0 10px 10px;
+        z-index: 2;
+      }
+
+      .ticket {
+        position: absolute;
+        top: 8%;
+        left: 8%;
+        width: 84%;
+        height: 84%;
+        background: #fffefc;
+        padding: 18px;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        transform: scale(0.9);
+        opacity: 0;
+        transition: opacity 0.6s ease, transform 0.5s ease;
+        z-index: 1;
+        overflow-y: auto;
+      }
+
+      .opened .flap {
+        transform: rotateX(180deg);
+        z-index: 1;
+      }
+
+      .opened .ticket {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 4;
+      }
+
+      .envelope:hover {
+        transform: translateY(-4px);
+      }
+    </style>
   </head>
-  <body>
-    <div class="letter-container">
-      <div class="letter-header">
-        <h1>Dear Mother-in-Law, Helen</h1>
-      </div>
-      <div class="letter-body">
-        <p>Hola Helen,</p>
 
-        <p>
-          Mi nombre es Jaeseung y tengo el honor de ser el esposo de Ori. Quiero
-          expresarte mi más sincero agradecimiento por haber criado a una
-          persona tan maravillosa. Ori me ha contado que su madre enfrentó
-          muchos desafíos tras la pérdida de su padre, y estoy seguro de que
-          criar a tres hijos sola no fue fácil. Sin embargo, al ver en qué
-          grandes personas se han convertido Ori y sus hermanos, no tengo dudas
-          de que eso es un reflejo de la increíble fortaleza y carácter que
-          tienes. Quiero expresarte mi respeto y admiración por ello.
-        </p>
-
-        <p>
-          Ya tienes un hijo llamado Fabián, pero por favor, considérame también
-          como un hijo. Si necesitas ayuda, no dudes en avisarme cuando quieras.
-        </p>
-
-        <p>
-          Ori es una mujer excepcional, y estoy profundamente enamorado de ella.
-          No tengo la menor duda de que será una esposa encantadora y una madre
-          maravillosa. Por mi parte, haré todo lo posible para ser el mejor
-          esposo, siempre apoyándola y cuidando de nuestra familia.
-        </p>
-
-        <p>
-          Estoy muy emocionado de conocerte mejor y de poder compartir momentos
-          juntos aquí en Corea.
-        </p>
-      </div>
-      <div class="letter-footer">
-        <p>Con todo mi cariño y gratitud,</p>
-        <p>Tu otro hijo, Jaeseung</p>
-      </div>
+  <body
+    class="bg-gradient-to-br from-rose-50 via-orange-50 to-yellow-50 min-h-screen flex flex-col items-center justify-center text-center p-6"
+  >
+    <div class="max-w-sm mb-8">
+      <h1
+        class="text-3xl sm:text-5xl font-extrabold text-gray-800 mb-3 leading-tight"
+      >
+        Happy Birthday, <span class="text-red-500">[Friend's Name]</span> 🎂
+      </h1>
+      <p class="text-base sm:text-lg text-gray-700">
+        Tap the envelope to open your surprise gift.
+        <br /><span class="text-xs text-gray-500">Tap again to close.</span>
+      </p>
     </div>
 
-    <!-- Container for flower shower -->
-    <div id="flower-shower"></div>
+    <div id="envelope-container" class="envelope">
+      <div
+        class="ticket border-4 border-dashed border-red-400 flex flex-col justify-center items-center text-center"
+      >
+        <h2 class="text-xl sm:text-2xl font-bold text-red-600 mb-2">
+          🎁 Birthday Gift Ticket 🎁
+        </h2>
+        <p class="text-base sm:text-lg text-gray-800 font-semibold mb-3 px-2">
+          Valid for a
+          <span class="text-orange-600"
+            >Full Comprehensive Medical Check-up</span
+          >.
+        </p>
+        <div
+          class="bg-orange-50 border border-orange-200 p-3 rounded-lg mb-3 text-sm sm:text-base text-gray-700 leading-snug"
+        >
+          <p>
+            <strong>Value:</strong> Priceless (Your Health!)<br />
+            <strong>How to claim:</strong> Jaeseung will contact you to schedule
+            it.
+          </p>
+        </div>
+        <p class="text-xs sm:text-sm text-gray-600 italic px-3">
+          Wishing you a year of health and happiness — from Jaeseung ❤️
+        </p>
+      </div>
 
-    <script src="src/app.js"></script>
+      <div class="flap"></div>
+      <div class="body"></div>
+    </div>
+
+    <audio id="birthday-song" src="happy_birthday.mp3" preload="auto"></audio>
+
+    <script>
+      const envelope = document.getElementById("envelope-container");
+      const audio = document.getElementById("birthday-song");
+      let isOpened = false;
+
+      envelope.addEventListener("click", () => {
+        envelope.classList.toggle("opened");
+        isOpened = !isOpened;
+
+        if (isOpened) {
+          audio.currentTime = 0;
+          audio.play().catch(() => {});
+        } else {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+    </script>
   </body>
 </html>
